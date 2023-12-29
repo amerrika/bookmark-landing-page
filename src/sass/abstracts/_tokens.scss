@@ -1,0 +1,127 @@
+@use "typography" as *;
+@use "colors" as *;
+@use "sizes" as *;
+@use "shadows" as *;
+
+// BODY
+$body-txt-clr: $neutral-900;
+$body-bg-clr: $neutral-100;
+
+// LAYOUT
+$grid-gap: 8rem;
+
+// BUTTONS
+$button-ff: $ff-base;
+$button-fs: $fs-500;
+$button-fw: $fw-regular;
+$button-ls: 0;
+$button-tt: unset;
+$button-padding: 1rem 2rem;
+$button-default-bg: transparent;
+$button-border: 2px solid;
+$button-br: 0.5rem;
+// Primary
+$button-primary-bg: $project-blue-soft;
+$button-primary-clr: $neutral-100;
+$button-primary-border-clr: $project-blue-soft;
+$button-primary-bg-hover: $project-blue-soft;
+$button-primary-clr-hover: $neutral-100;
+$button-primary-outline: 2px dotted $neutral-900;
+$button-primary-outline-offset: 2px;
+// Outline
+$button-outline-bg: $neutral-100;
+$button-outline-clr: $neutral-800;
+$button-outline-border-clr: $project-blue-dark;
+$button-outline-bg-hover: $neutral-100;
+$button-outline-clr-hover: $neutral-800;
+$button-outline-outline: 2px dotted $neutral-900;
+$button-outline-outline-offset: 2px;
+// Inverted
+$button-inverted-bg: $neutral-100;
+$button-inverted-clr: $neutral-900;
+$button-inverted-border-clr: $neutral-100;
+$button-inverted-bg-hover: $neutral-300;
+$button-inverted-clr-hover: $neutral-900;
+$button-inverted-outline: none;
+$button-inverted-outline-offset: 0;
+// Muted
+$button-muted-padding: 0;
+$button-muted-bg: transparent;
+$button-muted-clr: $neutral-900;
+$button-muted-border-clr: transparent;
+$button-muted-bg-hover: transparent;
+$button-muted-clr-hover: $neutral-600;
+$button-muted-outline: none;
+$button-muted-outline-offset: 0;
+
+// HEADINGS
+$heading-ff: $ff-accent;
+$heading-tt: unset;
+$heading-ls: 0;
+$heading-line-height: 1.1;
+$heading-clr-default: $neutral-900;
+
+$heading-1-fs: $fs-h1;
+$heading-1-fw: $fw-medium;
+$heading-1-clr: $heading-clr-default;
+
+$heading-2-fs: $fs-h2;
+$heading-2-fw: $fw-medium;
+$heading-2-clr: $heading-clr-default;
+
+$heading-3-fs: $fs-h3;
+$heading-3-fw: $fw-medium;
+$heading-3-clr: $heading-clr-default;
+
+// FOOTER
+$footer-bg-clr: $project-blue-dark;
+$footer-clr: $neutral-100;
+$footer-fs: $fs-300;
+$footer-fw: $fw-regular;
+// link
+$footer-link-ff: $ff-base;
+$footer-link-clr: $neutral-100;
+$footer-link-clr-hover: $neutral-100;
+$footer-link-ls: 0;
+$footer-link-fs: $fs-300;
+$footer-link-fw: $fw-regular;
+
+// HEADER
+$header-box-shadow: none;
+$header-bg-clr: $neutral-100;
+$header-fs: $fs-500;
+$header-fw: $fw-regular;
+
+// NAVIGATION
+// link
+$navigation-link-ff: $ff-base;
+$navigation-link-clr: $project-blue-dark;
+
+$navigation-link-ls: 1px;
+$navigation-link-fs: $fs-200;
+$navigation-link-fw: $fw-regular;
+$navigation-link-tt: uppercase;
+
+// ACCORDION
+// button
+$accordion-button-background-color: $neutral-100;
+$accordion-button-padding: 20px;
+
+// panel
+$accordion-panel-background-color: $neutral-100;
+
+// heading
+$accordion-heading-font-family: $ff-base;
+$accordion-heading-font-size: $fs-500;
+$accordion-heading-font-weight: 400;
+
+// panel-inner & text
+$panel-inner-clr: $neutral-700;
+$panel-inner-padding: 20px 10px;
+$panel-inner-font-family: $ff-base;
+$panel-inner-font-size: 16px;
+$panel-inner-font-weight: 400;
+
+// border
+$accordion-border-width: 1px;
+$accordion-border-color: $neutral-400;

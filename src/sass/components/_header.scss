@@ -1,0 +1,48 @@
+@use "../abstracts/" as *;
+
+.header {
+  box-shadow: $header-box-shadow;
+  background-color: $header-bg-clr;
+  font-size: $header-fs;
+  font-weight: $header-fw;
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  line-height: 1;
+  border-bottom: 1px solid $neutral-900;
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+
+    & > div {
+      // This div contains logo and toggle button
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-basis: 100%;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 2;
+    }
+  }
+
+  &__logo {
+    @include focus;
+  }
+
+  .skip {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+
+    &:focus {
+      position: static;
+    }
+  }
+}

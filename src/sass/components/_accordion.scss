@@ -1,0 +1,91 @@
+@use "../abstracts/" as *;
+
+.accordion {
+  &__wrapper {
+    list-style: none;
+    padding: 0;
+    max-width: 900px;
+    margin-inline: auto;
+  }
+
+  &__button {
+    background-color: $accordion-button-background-color;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: $accordion-button-padding;
+    border: $accordion-border-width solid $accordion-border-color;
+    text-align: left;
+    cursor: pointer;
+
+    &:focus-visible {
+      outline-style: dotted;
+      outline-width: 2px;
+      outline-offset: -6px;
+      box-shadow: inset 0 0 0 2px white;
+    }
+  }
+
+  //Preventing double border-style
+  &__item {
+    width: 100%;
+
+    &:only-of-type,
+    &:last-of-type {
+      .accordion__button {
+        border: $accordion-border-width solid $accordion-border-color;
+      }
+    }
+
+    &:only-of-type,
+    &:last-of-type {
+      .accordion__panel {
+        border-bottom: $accordion-border-width solid $accordion-border-color;
+      }
+    }
+
+    .accordion__button {
+      border-bottom: 0;
+    }
+  }
+
+  &__heading {
+    font-family: $accordion-heading-font-family;
+    font-size: $accordion-heading-font-size;
+    font-weight: $accordion-heading-font-weight;
+  }
+
+  &__panel {
+    background-color: $accordion-panel-background-color;
+    visibility: hidden;
+    overflow: hidden;
+    height: 0;
+    border-left: $accordion-border-width solid $accordion-border-color;
+    border-right: $accordion-border-width solid $accordion-border-color;
+    transition: height 0.3s ease-in-out, visibility 0s 0.3s;
+  }
+}
+
+.button__toggle-indicator {
+  max-width: 20px;
+}
+
+.panel__inner {
+  padding: $panel-inner-padding;
+  font-family: $panel-inner-font-family;
+  font-size: $panel-inner-font-size;
+  font-weight: $panel-inner-font-weight;
+  color: $panel-inner-clr;
+}
+
+.accordion__button[aria-expanded="true"] {
+  border: $accordion-border-width solid $accordion-border-color;
+}
+
+.is-active .accordion__panel {
+  visibility: visible;
+  height: auto;
+  transition: height 0.3s ease-in-out, visibility 0s 0s;
+}

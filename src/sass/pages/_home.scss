@@ -1,0 +1,233 @@
+@use "../abstracts/" as *;
+
+.subtitle {
+  text-align: center;
+  color: $neutral-700;
+  max-width: 50ch;
+  margin-inline: auto;
+}
+
+//--- HERO ---//
+.hero {
+  //height: 100vh;
+  padding-block-start: 7.5rem;
+
+  img {
+    max-width: 657px;
+    max-height: 466px;
+  }
+
+  &__content {
+    text-align: center;
+    display: grid;
+    align-content: center;
+    gap: 3rem;
+    grid-row: 2;
+    @include mq(medium) {
+      grid-row: unset;
+      text-align: left;
+    }
+
+    h1 span {
+      @include heading-decoration;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-self: center;
+
+    @include mq(medium) {
+      justify-self: start;
+    }
+
+    a {
+      @include hover;
+      @include focus;
+    }
+  }
+
+  &__image {
+    position: relative;
+    z-index: 0;
+    margin-inline: auto;
+    &::after {
+      content: "";
+      display: block;
+      height: 85%;
+      width: 200%;
+      position: absolute;
+      z-index: -1;
+      top: 30%;
+      left: 30%;
+      border-top-left-radius: 10rem;
+      border-bottom-left-radius: 20rem;
+      background-image: linear-gradient(
+        to left bottom,
+        #d1d5ff,
+        #c6caff,
+        #bac0ff,
+        #afb5ff,
+        #a3abff,
+        #99a2fc,
+        #8e98fa,
+        #848ff7,
+        #7885f1,
+        #6d7beb,
+        #6072e5,
+        #5368df
+      );
+    }
+  }
+}
+//--- FEATURES ---//
+.features {
+  padding-block: $p-800;
+  @include mq(small) {
+    padding-block: unset;
+  }
+
+  & + p {
+    max-width: 30ch;
+  }
+
+  & > :first-child {
+    margin-block-end: 3rem;
+    @include mq(small) {
+      margin-block-end: 6rem;
+    }
+  }
+
+  h2 span {
+    @include heading-decoration;
+  }
+}
+
+//--- EXTENSION ---//
+.extension {
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+    flex-wrap: wrap;
+    @include mq(medium) {
+      min-height: 500px;
+
+      & > :first-child {
+        align-self: flex-start;
+      }
+      & > :last-child {
+        align-self: flex-end;
+      }
+    }
+  }
+
+  h2 span {
+    @include heading-decoration;
+  }
+}
+
+//--- ACCORDION ---//
+.accordion {
+  a {
+    @include hover;
+  }
+
+  h2 span {
+    @include heading-decoration;
+  }
+}
+
+//--- NEWSLETTER ---//
+.newsletter {
+  background-color: $project-blue-soft;
+  color: $neutral-100;
+
+  p {
+    font-size: $fs-300;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    word-spacing: 0.5rem;
+    margin-block-end: 3rem;
+  }
+
+  &__wrapper {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    gap: 5rem;
+    padding-block: 3rem;
+    @include mq(medium) {
+      grid-template-columns: 1fr 1.5fr;
+      justify-items: unset;
+    }
+    & > :first-child {
+      width: 239px;
+      height: 289px;
+      @include mq(small) {
+        width: 344px;
+        height: 416px;
+      }
+
+      background: url("/images/decoration-newsletter.png");
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center bottom;
+    }
+    & > :last-child {
+      text-shadow: $text-shadow-dark;
+      text-align: center;
+      @include mq(medium) {
+        text-align: left;
+      }
+
+      form {
+        display: flex;
+        gap: 2rem;
+        justify-content: center;
+        flex-direction: column;
+        @include mq(medium) {
+          flex-direction: row;
+        }
+      }
+      input[type="email"] {
+        width: 100%;
+        margin-block-start: 1rem;
+        padding: 1.5rem;
+        border-radius: 0.5rem;
+        border: none;
+        outline: none;
+        font-size: $fs-500;
+        @include focus($color: white);
+
+        &::placeholder {
+          font-size: $fs-300;
+          color: $neutral-500;
+          opacity: 1;
+        }
+      }
+      input[type="submit"] {
+        cursor: pointer;
+        padding: 1rem 3rem;
+        border-radius: 0.5rem;
+        border: none;
+        outline: none;
+        font-size: $fs-300;
+        color: $neutral-900;
+        background-color: $project-red;
+        height: 57px;
+        align-self: end;
+        width: 100%;
+
+        @include hover;
+        @include focus($color: white);
+        @include mq(medium) {
+          width: unset;
+        }
+      }
+    }
+  }
+}

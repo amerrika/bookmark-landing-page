@@ -1,0 +1,160 @@
+---
+import "../sass/main.scss";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Link from "../components/Link.astro";
+import Features from "../components/Features.astro";
+import CardExtension from "../components/CardExtension.astro";
+import Accordion from "../components/Accordion.astro";
+import AccordionItem from "../components/AccordionItem.astro";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" sizes="32x32" href="favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Frontend Mentor | Bookmark landing page</title>
+  </head>
+
+  <body>
+    <Header />
+    <main id="main">
+      <section class="hero">
+        <div class="container even-columns pb-800">
+          <div class="hero__content">
+            <h1 class="heading-1"><span>A Simple Bookmark Manager</span></h1>
+            <p class="txt-neutral-700">
+              A clean and simple interface to organize your favourite websites.
+              Open a new browser tab and see your sites load instantly. Try it
+              for free.
+            </p>
+            <div class="hero__buttons">
+              <Link className="p-2">Get it on Chrome</Link>
+              <Link style="outline" className="p-2">Get it on Firefox</Link>
+            </div>
+          </div>
+          <div class="hero__image">
+            <img src="images/illustration-hero.svg" alt="" />
+          </div>
+        </div>
+      </section>
+      <section class="features">
+        <div class="container">
+          <h2 class="heading-2 txt-center mb-end-6"><span>Features</span></h2>
+          <p class="subtitle">
+            Our aim is to make it quick and easy for you to access your
+            favourite websites. Your bookmarks sync between your devices so you
+            can access them on the go.
+          </p>
+        </div>
+        <Features />
+      </section>
+      <section class="extension container pb-800">
+        <h2 class="heading-2 txt-center mb-end-6">
+          <span>Download the extension</span>
+        </h2>
+        <p class="subtitle mb-end-8">
+          We’ve got more browsers in the pipeline. Please do let us know if
+          you’ve got a favourite you’d like us to prioritize.
+        </p>
+        <ul class="extension__wrapper">
+          <CardExtension
+            heading="Add to Chrome"
+            subheading="Minimum version 62"
+            logo="logo-chrome.svg"
+          />
+          <CardExtension
+            heading="Add to Firefox"
+            subheading="Minimum version 55"
+            logo="logo-firefox.svg"
+          />
+          <CardExtension
+            heading="Add to Opera"
+            subheading="Minimum version 46"
+            logo="logo-opera.svg"
+          />
+        </ul>
+      </section>
+      <section class="accordion container pb-800">
+        <h2 class="heading-2 txt-center mb-end-6">
+          <span>Frequently Asked Questions</span>
+        </h2>
+        <p class="subtitle mb-end-8">
+          Here are some of our FAQs. If you have any other questions you’d like
+          answered please feel free to email us.
+        </p>
+        <Accordion>
+          <AccordionItem title="What is Bookmark?">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
+              tincidunt justo eget ultricies fringilla. Phasellus blandit ipsum
+              quis quam ornare mattis.
+            </p>
+          </AccordionItem>
+          <AccordionItem title="How can I request a new browser?">
+            <p>
+              Vivamus luctus eros aliquet convallis ultricies. Mauris augue
+              massa, ultricies non ligula. Suspendisse imperdiet. Vivamus luctus
+              eros aliquet convallis ultricies. Mauris augue massa, ultricies
+              non ligula. Suspendisse imperdie tVivamus luctus eros aliquet
+              convallis ultricies. Mauris augue massa, ultricies non ligula.
+              Suspendisse imperdiet.
+            </p>
+          </AccordionItem>
+          <AccordionItem title="Is there a mobile app?">
+            <p>
+              Sed consectetur quam id neque fermentum accumsan. Praesent luctus
+              vestibulum dolor, ut condimentum urna vulputate eget. Cras in
+              ligula quis est pharetra mattis sit amet pharetra purus. Sed
+              sollicitudin ex et ultricies bibendum.
+            </p>
+          </AccordionItem>
+          <AccordionItem title="What about other Chromium browsers?">
+            <p>
+              Integer condimentum ipsum id imperdiet finibus. Vivamus in
+              placerat mi, at euismod dui. Aliquam vitae neque eget nisl gravida
+              pellentesque non ut velit.
+            </p>
+          </AccordionItem>
+        </Accordion>
+        <div style="display: flex; justify-content: center;">
+          <Link className="mb-start-6">More info</Link>
+        </div>
+      </section>
+      <section class="newsletter">
+        <div class="container">
+          <div class="newsletter__wrapper">
+            <div class="newsletter-decoration" aria-hidden="true"></div>
+            <div>
+              <p>35,000+ already joined</p>
+              <h2 class="heading-2 txt-neutral-100 mb-end-6">
+                <span class="display-block">Stay up-to-date with what</span
+                >we're doing
+              </h2>
+              <form>
+                <div>
+                  <label for="email" class="fs-300"
+                    >Enter your email address</label
+                  >
+                  <input
+                    id="email"
+                    type="email"
+                    name="email"
+                    placeholder="Enter your email address"
+                    pattern=".+@example\.com"
+                    size="30"
+                    required
+                  />
+                </div>
+                <input type="submit" value="Subscribe" />
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <Footer />
+  </body>
+</html>

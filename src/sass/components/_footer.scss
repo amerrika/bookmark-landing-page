@@ -1,0 +1,61 @@
+@use "../abstracts/" as *;
+
+// Prefixed
+.footer {
+  background-color: $footer-bg-clr;
+  color: $footer-clr;
+  font-size: $footer-fs;
+  font-weight: $footer-fw;
+
+  a {
+    font-family: $footer-link-ff;
+    color: $footer-link-clr;
+    letter-spacing: $footer-link-ls;
+    font-size: $footer-link-fs;
+    font-weight: $footer-link-fw;
+    display: block;
+    @include hover;
+    @include focus(2px, white);
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5rem;
+    @include mq(small) {
+      flex-direction: row;
+    }
+
+    ul:first-of-type {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3rem;
+      flex-grow: 2;
+
+      @include mq(small) {
+        flex-direction: row;
+      }
+    }
+
+    ul:last-of-type {
+      display: flex;
+      gap: 3rem;
+      align-items: center;
+
+      a {
+        display: grid;
+        place-content: center;
+        border-radius: 50%;
+        padding: 1em;
+        height: 3.5rem;
+        width: 3.5rem;
+
+        &:hover {
+          border: 1px solid white;
+        }
+      }
+    }
+  }
+}

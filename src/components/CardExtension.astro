@@ -1,0 +1,15 @@
+---
+import "../sass/main.scss";
+import Link from "./Link.astro";
+const { heading, subheading, logo } = Astro.props;
+---
+
+<li class="card-extension br-15">
+  <img src=`/images/${logo}` alt="" />
+  <div>
+    <h3 class="heading-3 txt-center mb-end-2">{heading}</h3>
+    <p class="txt-center fs-300 txt-neutral-700">{subheading}</p>
+  </div>
+  <div class="decoration-dots"></div>
+  <Link className="mb-start-2">Add & Install Extension</Link>
+</li>

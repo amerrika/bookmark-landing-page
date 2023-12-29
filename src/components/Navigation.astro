@@ -1,0 +1,53 @@
+---
+import "../sass/main.scss";
+---
+
+<nav id="main-navigation" class="main-nav" aria-label="Main">
+  <ul>
+    <slot />
+  </ul>
+</nav>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // elements
+    const mainNav = document.querySelector("#main-navigation");
+    const mainMenu = mainNav.querySelector("ul");
+    const menuItems = [...mainMenu.querySelectorAll("li")];
+
+    mainMenu &&
+      mainMenu.addEventListener("keydown", (event) => {
+        const currentMenuItem = event.target.closest("li");
+        const currentIndex = menuItems.findIndex(
+          (item) => item === currentMenuItem
+        );
+
+        const { key } = event;
+        let targetItem;
+
+        if (key === "ArrowRight") {
+          if (menuItems.indexOf(currentMenuItem) === menuItems.length - 1) {
+            targetItem = menuItems[0];
+          } else {
+            targetItem = menuItems[currentIndex + 1];
+          }
+        }
+
+        if (key === "ArrowLeft") {
+          if (menuItems.indexOf(currentMenuItem) === 0) {
+            targetItem = menuItems[menuItems.length - 1];
+          } else {
+            targetItem = menuItems[currentIndex - 1];
+          }
+        }
+
+        if(key === "Escape"){
+          targetItem = menuItems[0];
+        }
+
+        if (targetItem) {
+          targetItem.querySelector("a").focus();
+        }
+      });
+  });
+</script>

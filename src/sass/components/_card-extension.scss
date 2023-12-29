@@ -1,0 +1,32 @@
+@use "../abstracts/" as *;
+
+.card-extension {
+  box-shadow: $box-shadow-card;
+  display: grid;
+  gap: 3rem;
+  justify-items: center;
+  height: 390px;
+  padding: 4rem;
+  position: relative;
+
+  a {
+    @include hover;
+    @include focus;
+  }
+  
+  img {
+    height: 10rem;
+    width: 10rem;
+  }
+
+  // decoration dots
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 5px;
+    width: 100%;
+    background: url("/images/bg-dots.svg");
+    bottom: 120px;
+  }
+}

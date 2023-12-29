@@ -1,0 +1,77 @@
+@use "../abstracts/" as *;
+
+.main-nav {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: grid;
+  place-content: center;
+  background-color: rgba(37, 43, 70, 0.9);
+  height: 0;
+  visibility: hidden;
+
+  &.show {
+    height: 100vh;
+    visibility: visible;
+  }
+
+  @include mq(small) {
+    position: static;
+    height: unset;
+    width: unset;
+    display: unset;
+    background-color: unset;
+    visibility: visible;
+  }
+
+  // navigation menu
+  ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5rem;
+
+    @include mq(small) {
+      flex-direction: row;
+      align-items: center;
+      gap: 4rem;
+
+      > :last-child {
+        // Login nav button extra styling
+        @include mq(small) {
+          a {
+            display: block;
+            color: $neutral-900;
+            padding: 1rem 3.5rem;
+            background-color: $project-red;
+            border-radius: 0.5rem;
+            &:hover {
+              text-decoration-color: $neutral-900;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // navigation links
+  a {
+    color: $neutral-100;
+    text-transform: $navigation-link-tt;
+    font-family: $navigation-link-ff;
+    font-size: 2rem;
+    font-weight: $navigation-link-fw;
+    letter-spacing: $navigation-link-ls;
+    outline: none;
+    @include hover;
+    @include focus;
+
+    @include mq(small) {
+      color: $project-blue-dark;
+      font-size: $navigation-link-fs;
+    }
+  }
+}

@@ -1,0 +1,37 @@
+$colors: (
+  "neutral": ("0": transparent,
+    "100": #ffffff,
+    "200": #f5f7fb,
+    "300": #e7eaf4,
+    "400": #c5c9da,
+    "500": #b0b4c5,
+    "600": #777c88,
+    "700": #64748b,
+    "800": #52555d,
+    "900": #0d0e10,
+  ),
+  "alert": ("red": #a31000,
+    "green": #567911,
+  ),
+  "project": ("red": hsl(0, 94%, 66%),
+    "blue-soft": hsl(231, 69%, 60%),
+    "blue-dark": #252b46,
+  )
+);
+
+$neutral-100: #ffffff;
+$neutral-200: #f5f7fb;
+$neutral-300: #e7eaf4;
+$neutral-400: #c5c9da;
+$neutral-500: #b0b4c5;
+$neutral-600: #777c88;
+$neutral-700: #64748b;
+$neutral-800: #52555d;
+$neutral-900: #0d0e10;
+
+$alert-red: #a31000;
+$alert-green: #567911;
+
+$project-red: #fbc80b;
+$project-blue-soft: hsl(231, 69%, 60%);
+$project-blue-dark: hsl(229, 31%, 21%);

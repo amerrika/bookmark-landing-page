@@ -1,0 +1,149 @@
+---
+import "../sass/main.scss";
+import Link from "./Link.astro";
+
+const features = [
+  {
+    buttonName: "Simple Bookmarking",
+    ariaLabel: "Navigate to Simple Bookmarking",
+    heading: "Bookmark in one click",
+    text: "Organize your bookmarks however you like. Our simple drag-and-drop interface gives you complete control over how you manage your favourite sites.",
+    img: "images/illustration-features-tab-1.svg",
+    alt: "Managing bookmarks",
+  },
+  {
+    buttonName: "Speedy Searching",
+    ariaLabel: "Navigate to Speedy Searching",
+    heading: "Intelligent search",
+    text: "Our powerful search feature will help you find saved sites in no time at all. No need to trawl through all of your bookmarks.",
+    img: "images/illustration-features-tab-2.svg",
+    alt: "Magnifier searching bookmarks",
+  },
+  {
+    buttonName: "Easy Sharing",
+    ariaLabel: "Navigate to Easy Sharing",
+    heading: "Share your bookmarks",
+    text: "Easily share your bookmarks and collections with others. Create a shareable link that you can send at the click of a button.",
+    img: "images/illustration-features-tab-3.svg",
+    alt: "A person sharing a bookmark",
+  },
+];
+---
+
+<div class="container">
+  <ol class="features__buttons">
+    {
+      features.map((feature) => {
+        return (
+          <li class="features__buttons--item">
+            <button
+              class="button button-feature"
+              aria-label={feature.ariaLabel}
+              aria-pressed="false"
+            >
+              {feature.buttonName}
+            </button>
+          </li>
+        );
+      })
+    }
+  </ol>
+
+  <ol class="features__wrapper">
+    {
+      features.map((feature) => {
+        return (
+          <>
+            <li class="slider even-columns" aria-hidden="true">
+              <div>
+                <img src={feature.img} alt={feature.alt} />
+              </div>
+              <div>
+                <h3 class="heading-2">{feature.heading}</h3>
+                <p class="txt-neutral-700">{feature.text}</p>
+                <Link>More info</Link>
+              </div>
+            </li>
+          </>
+        );
+      })
+    }
+  </ol>
+</div>
+
+<script>
+  // elements & data
+  const features = Array.from(document.querySelectorAll(".slider"));
+  const buttons = Array.from(document.querySelectorAll(".button-feature"));
+
+  // init: feature-1 set to current
+  features[0].setAttribute("aria-hidden", "false");
+  buttons[0].setAttribute("aria-pressed", "true");
+
+  // execution
+  for (let i = 0; i < buttons.length; i++) {
+    buttons[i].setAttribute("id", `button-feature-${i + 1}`);
+    buttons[i].setAttribute("aria-controls", `feature-${i + 1}`);
+
+    features[i].setAttribute("id", `feature-${i + 1}`);
+    features[i].setAttribute("aria-labelledby", `button-feature-${i + 1}`);
+  }
+
+  // click event
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest(".button-feature")) return;
+
+    const activeFeature = e.target.getAttribute("aria-controls");
+
+    // highlight clicked button
+    buttons.forEach((button) => {
+      if (button.getAttribute("aria-controls") === activeFeature) {
+        button.setAttribute("aria-pressed", "true");
+      } else {
+        button.setAttribute("aria-pressed", "false");
+      }
+    });
+
+    // display selected feature
+    features.forEach((feature) => {
+      if (feature.getAttribute("id") === activeFeature) {
+        feature.setAttribute("aria-hidden", "false");
+      } else {
+        feature.setAttribute("aria-hidden", "true");
+      }
+    });
+  });
+
+  // keyboard
+  document.addEventListener("keydown", (event) => {
+    // if ain't button, do nothing
+    if (!event.target.closest(".button-feature")) return;
+
+    const buttonsWrapper = event.target.closest(".features__buttons");
+    const buttonsItem = event.target.closest(".features__buttons--item");
+    const buttonsItems = [
+      ...buttonsWrapper.querySelectorAll(".features__buttons--item"),
+    ];
+
+    const index = buttonsItems.findIndex((element) => {
+      return element === buttonsItem;
+    });
+
+    const { key } = event;
+
+    let targetItem;
+
+    if (key === "ArrowRight") {
+      targetItem = buttonsItems[index + 1];
+    }
+
+    if (key === "ArrowLeft") {
+      targetItem = buttonsItems[index - 1];
+    }
+
+    if (targetItem) {
+      event.preventDefault();
+      targetItem.querySelector(".button-feature").focus();
+    }
+  });
+</script>
