@@ -11,7 +11,7 @@ Your users should be able to:
 
 ## My personal project goals
 
-Creating this project I wanted to focus on _Web Accessibility_, to learn and implement some basics of it, as well as trying to make that the website looks good on any device.
+Creating this project I wanted to focus on **Web Accessibility**, to learn and implement some basics of it, as well as trying to make that the website looks good on any device.
 
 ## Built with
 
@@ -22,9 +22,9 @@ Creating this project I wanted to focus on _Web Accessibility_, to learn and imp
 
 ## What I learned
 
-Web Accessibility is a very broad topic and can be really overwhelming for a beginner. Some of the important things for accessible websites that I learned are:
+**Web Accessibility** is a very broad topic and can be really overwhelming for a beginner. Some of the important things for accessible websites that I learned are:
 
-- using semantic HTML
+- using semantic HTML5
 - checking color contrast,
 - making skip navigation link that takes the user to the main content
 - keep in mind keyboard accessibility. With JavaScript I improved keyboard accessibility by allowing users to move between items using arrow keys (main navigation, features section, footer navigation, accordion) and using Esc key to always navigate back to the first item.
